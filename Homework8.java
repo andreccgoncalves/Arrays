@@ -26,7 +26,6 @@ public class Homework8 {
 
         Random r = new Random();
         int rand = r.nextInt(100);
-        System.out.println(rand);
 
         System.out.print("Please pick a number between 1 and 100, you have 10 guesses: \n");
 
@@ -43,26 +42,35 @@ public class Homework8 {
             } else if (count == 0) {
 
                 System.out.println("Hard Luck!!");
+                System.out.println("The number was: " + rand);
 
             }
 
             if (userGuess[i] < 1 || userGuess[i] > 100) {
-                System.out.print("Please enter number between 1 and 100.\n");
-            } else {
+                System.out.print("That was a waste - Please enter number between 1 and 100.\n");
+            } 
+            
+            else {
 
                 boolean isItDuplicate = false;
+                
                 for (int j = 0; j < counter; j++) {
+                    
                     if (userGuess[i] == userGuess[j]) {
                         isItDuplicate = true;
+                        
                     }
                 }
                 if (isItDuplicate == true) {
                     System.out.print("That was a waste – you already guessed that number!\n");
-                } else {
+                }
+                
+                else {
                     userGuess[counter] = userGuess[i];
                     counter++;
                 }
             }
+
         }
 
     }
